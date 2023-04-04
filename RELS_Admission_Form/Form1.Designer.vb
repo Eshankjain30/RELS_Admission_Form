@@ -110,7 +110,7 @@ Partial Class Form1
         Me.txtFirstName.Location = New System.Drawing.Point(200, 168)
         Me.txtFirstName.Name = "txtFirstName"
         Me.txtFirstName.Size = New System.Drawing.Size(204, 30)
-        Me.txtFirstName.TabIndex = 2
+        Me.txtFirstName.TabIndex = 1
         '
         'txtMiddleName
         '
@@ -118,7 +118,7 @@ Partial Class Form1
         Me.txtMiddleName.Location = New System.Drawing.Point(630, 168)
         Me.txtMiddleName.Name = "txtMiddleName"
         Me.txtMiddleName.Size = New System.Drawing.Size(204, 30)
-        Me.txtMiddleName.TabIndex = 3
+        Me.txtMiddleName.TabIndex = 2
         '
         'Label2
         '
@@ -136,7 +136,7 @@ Partial Class Form1
         Me.txtLastName.Location = New System.Drawing.Point(1027, 168)
         Me.txtLastName.Name = "txtLastName"
         Me.txtLastName.Size = New System.Drawing.Size(204, 30)
-        Me.txtLastName.TabIndex = 4
+        Me.txtLastName.TabIndex = 3
         '
         'Label3
         '
@@ -236,7 +236,8 @@ Partial Class Form1
         Me.txtForm.Location = New System.Drawing.Point(876, 69)
         Me.txtForm.Name = "txtForm"
         Me.txtForm.Size = New System.Drawing.Size(137, 45)
-        Me.txtForm.TabIndex = 1
+        Me.txtForm.TabIndex = 0
+        Me.txtForm.TabStop = False
         '
         'Label22
         '
@@ -540,7 +541,7 @@ Partial Class Form1
         Me.txtArea.Location = New System.Drawing.Point(170, 573)
         Me.txtArea.Name = "txtArea"
         Me.txtArea.Size = New System.Drawing.Size(201, 30)
-        Me.txtArea.TabIndex = 43
+        Me.txtArea.TabIndex = 31
         '
         'Label24
         '
@@ -577,7 +578,7 @@ Partial Class Form1
         Me.txtFees.Location = New System.Drawing.Point(124, 760)
         Me.txtFees.Name = "txtFees"
         Me.txtFees.Size = New System.Drawing.Size(121, 30)
-        Me.txtFees.TabIndex = 47
+        Me.txtFees.TabIndex = 42
         '
         'Label26
         '
@@ -601,13 +602,15 @@ Partial Class Form1
         '
         'cbMode
         '
+        Me.cbMode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cbMode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cbMode.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbMode.FormattingEnabled = True
         Me.cbMode.Items.AddRange(New Object() {"One Time", "Two Time", "Monthly"})
         Me.cbMode.Location = New System.Drawing.Point(409, 764)
         Me.cbMode.Name = "cbMode"
         Me.cbMode.Size = New System.Drawing.Size(152, 28)
-        Me.cbMode.TabIndex = 49
+        Me.cbMode.TabIndex = 43
         '
         'txtWithForm
         '
@@ -615,7 +618,7 @@ Partial Class Form1
         Me.txtWithForm.Location = New System.Drawing.Point(780, 760)
         Me.txtWithForm.Name = "txtWithForm"
         Me.txtWithForm.Size = New System.Drawing.Size(121, 30)
-        Me.txtWithForm.TabIndex = 51
+        Me.txtWithForm.TabIndex = 44
         '
         'Label28
         '
