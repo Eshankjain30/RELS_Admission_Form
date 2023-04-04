@@ -85,7 +85,7 @@ Partial Class Form1
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.btnSearch = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.Label31 = New System.Windows.Forms.Label()
@@ -223,7 +223,7 @@ Partial Class Form1
         '
         Me.Label23.AutoSize = True
         Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label23.Location = New System.Drawing.Point(1049, 54)
+        Me.Label23.Location = New System.Drawing.Point(1038, 54)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(201, 39)
         Me.Label23.TabIndex = 4
@@ -640,7 +640,7 @@ Partial Class Form1
         Me.Panel3.Controls.Add(Me.Label31)
         Me.Panel3.Controls.Add(Me.Label30)
         Me.Panel3.Controls.Add(Me.Label29)
-        Me.Panel3.Controls.Add(Me.TextBox1)
+        Me.Panel3.Controls.Add(Me.txtSearch)
         Me.Panel3.Controls.Add(Me.btnSearch)
         Me.Panel3.Controls.Add(Me.btnClear)
         Me.Panel3.Controls.Add(Me.btnUpdate)
@@ -690,13 +690,13 @@ Partial Class Form1
         Me.btnSearch.Text = "Search"
         Me.btnSearch.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'txtSearch
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(15, 141)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(187, 41)
-        Me.TextBox1.TabIndex = 54
+        Me.txtSearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSearch.Location = New System.Drawing.Point(15, 141)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(187, 41)
+        Me.txtSearch.TabIndex = 54
         '
         'Label29
         '
@@ -865,7 +865,7 @@ Partial Class Form1
     Friend WithEvents btnClear As Button
     Friend WithEvents btnUpdate As Button
     Friend WithEvents txtMotherOccupation As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtSearch As TextBox
     Friend WithEvents Label31 As Label
     Friend WithEvents Label30 As Label
     Friend WithEvents Label29 As Label
