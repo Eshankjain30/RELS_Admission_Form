@@ -12,7 +12,7 @@ Public Class Form1
         Dim First_Name As String = txtFirstName.Text
         Dim Middle_Name As String = txtMiddleName.Text
         Dim Last_Name As String = txtLastName.Text
-        Dim DOB As String = dtDOB.Text
+        Dim DOB As String = dtDOB.Value
         Dim Gender As String = cbGender.Text
         Dim Aadhar_no As String = txtAadhar.Text
         Dim Father_Name As String = txtFatherName.Text
@@ -36,21 +36,21 @@ Public Class Form1
         Dim With_Form As String = txtWithForm.Text
         Dim Remark As String = txtRemrk.Text
 
-        If Form_No = "" Or First_Name = "" Or Middle_Name = "" Or Last_Name = "" Or DOB = "" Or Gender = "" Or Aadhar_no = "" Or Father_Name = "" Or Mother_Name = "" Or Father_Occupation = "" Or Mother_Occupation = "" Or Father_Contact = "" Or Mother_Contact = "" Or Student_Contact = "" Or Address = "" Or Area = "" Or Admission = "" Or Course = "" Or School_Name = "" Or Previous_Tuition = "" Or Fees = "" Or Mode = "" Or With_Form = "" Then
+        If Form_No = "" Or First_Name = "" Or Middle_Name = "" Or Last_Name = "" Or DOB = Nothing Or Gender = "" Or Aadhar_no = "" Or Father_Name = "" Or Mother_Name = "" Or Father_Occupation = "" Or Mother_Occupation = "" Or Father_Contact = "" Or Mother_Contact = "" Or Student_Contact = "" Or Address = "" Or Area = "" Or Admission = "" Or Course = "" Or School_Name = "" Or Previous_Tuition = "" Or Fees = "" Or Mode = "" Or With_Form = "" Then
             MsgBox("Enter all the fields")
         Else
-            'Try
-            con.Open()
-            Dim stmt As String = "Insert into FormData(form_no, first_name, middle_name, last_name, dob, gender, aadhar_no, father_name, mother_name, father_occupation, mother_occupation, father_contact_no, mother_contact_no, own_contact, extra_contact, address, area, admission_in, course, school_name, previous_tuition, previous_result_1, previous_result_2, fees, mode, with_form, remark) values ('" & Form_No & "','" & First_Name & "','" & Middle_Name & "','" & Last_Name & "','" & DOB & "','" & Gender & "','" & Aadhar_no & "','" & Father_Name & "','" & Mother_Name & "','" & Father_Occupation & "','" & Mother_Occupation & "','" & Father_Contact & "','" & Mother_Contact & "','" & Student_Contact & "','" & Extra_Contact & "','" & Address & "','" & Area & "','" & Admission & "','" & Course & "','" & School_Name & "','" & Previous_Tuition & "','" & PreviousYearResult1 & "','" & PreviousYearResult2 & "','" & Fees & "','" & Mode & "','" & With_Form & "','" & Remark & "')"
-            Dim cmd As SqlCommand
+            Try
+                con.Open()
+                Dim stmt As String = "Insert into FormData(form_no, first_name, middle_name, last_name, dob, gender, aadhar_no, father_name, mother_name, father_occupation, mother_occupation, father_contact_no, mother_contact_no, own_contact, extra_contact, address, area, admission_in, course, school_name, previous_tuition, previous_result_1, previous_result_2, fees, mode, with_form, remark) values ('" & Form_No & "','" & First_Name & "','" & Middle_Name & "','" & Last_Name & "','" & DOB & "','" & Gender & "','" & Aadhar_no & "','" & Father_Name & "','" & Mother_Name & "','" & Father_Occupation & "','" & Mother_Occupation & "','" & Father_Contact & "','" & Mother_Contact & "','" & Student_Contact & "','" & Extra_Contact & "','" & Address & "','" & Area & "','" & Admission & "','" & Course & "','" & School_Name & "','" & Previous_Tuition & "','" & PreviousYearResult1 & "','" & PreviousYearResult2 & "','" & Fees & "','" & Mode & "','" & With_Form & "','" & Remark & "')"
+                Dim cmd As SqlCommand
                 cmd = New SqlCommand(stmt, con)
                 cmd.ExecuteNonQuery()
                 MsgBox("Success")
-            'Catch ex As Exception
-            MsgBox("Error")
-            'Finally
-            con.Close()
-            'End Try
+            Catch ex As Exception
+                MsgBox("Error")
+            Finally
+                con.Close()
+            End Try
         End If
 
 
@@ -106,5 +106,49 @@ Public Class Form1
             End Try
 
         End If
+    End Sub
+
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        Try
+            con.Open()
+            Dim cmd As SqlCommand
+            Dim stmt As String = "UPDATE FormData set first_name='" & txtFirstName.Text & "',middle_name='" & txtMiddleName.Text & "', last_name='" & txtLastName.Text & "', dob='" & dtDOB.Value & "', gender='" & cbGender.Text & "', aadhar_no='" & txtAadhar.Text & "', father_name='" & txtFatherName.Text & "', mother_name='" & txtMotherName.Text & "', father_occupation='" & txtFatherOccupation.Text & "', mother_occupation='" & txtMotherOccupation.Text & "', father_contact_no='" & txtFatherContact.Text & "', mother_contact_no='" & txtMotherContact.Text & "', own_contact='" & txtStudentContact.Text & "', extra_contact='" & txtExtraContact.Text & "', address='" & txtAddress.Text & "', area='" & txtArea.Text & "', admission_in='" & txtAdmission.Text & "', course='" & cbCourse.Text & "', school_name='" & txtSchool.Text & "', previous_tuition='" & txtPreviousTuition.Text & "', previous_result_1='" & txtPreviousResult1.Text & "', previous_result_2='" & txtPreviousResult2.Text & "', fees='" & txtFees.Text & "', mode='" & cbMode.Text & "', with_form='" & txtWithForm.Text & "', remark='" & txtRemrk.Text & "' where form_no='" & txtSearch.Text & "'"
+            cmd = New SqlCommand(stmt, con)
+            cmd.ExecuteNonQuery()
+            MsgBox("Successfully Updated")
+        Catch ex As Exception
+            MsgBox("Error")
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        txtFirstName.Clear()
+        txtMiddleName.Clear()
+        txtLastName.Clear()
+        dtDOB.Refresh()
+        cbGender.ResetText()
+        txtAadhar.Clear()
+        txtFatherName.Clear()
+        txtFatherOccupation.Clear()
+        txtFatherContact.Clear()
+        txtMotherContact.Clear()
+        txtMotherName.Clear()
+        txtMotherOccupation.Clear()
+        txtStudentContact.Clear()
+        txtExtraContact.Clear()
+        txtAddress.Clear()
+        txtArea.Clear()
+        txtAdmission.Clear()
+        cbCourse.ResetText()
+        txtSchool.Clear()
+        txtPreviousTuition.Clear()
+        txtPreviousResult1.Clear()
+        txtPreviousResult2.Clear()
+        txtFees.Clear()
+        cbMode.ResetText()
+        txtWithForm.Clear()
+        txtRemrk.Clear()
     End Sub
 End Class
